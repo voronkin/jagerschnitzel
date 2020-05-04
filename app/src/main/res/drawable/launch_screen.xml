@@ -7,11 +7,7 @@
             android:src="@drawable/colors"
             android:gravity="center"/>
     </item>
-    <item
-        android:adjustViewBounds="true"
-        android:left="300dp"
-        android:right="200dp"
-        >
+    <item>
         <bitmap
             android:src="@drawable/mandala"
             android:gravity="center"/>
