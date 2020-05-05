@@ -3,10 +3,12 @@ package com.voronkin.jagerschnitzel
 
 
 import android.os.Bundle
-import android.util.Log
+
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+/*
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,9 +18,11 @@ import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
+ */
+
 class MainActivity : AppCompatActivity() {
 
-
+/*
     private suspend fun httpGet(myURL: String?): String {
         val result = withContext(Dispatchers.IO) {
             val inputStream: InputStream
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         return result
     }
-
+*/
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
@@ -48,10 +52,13 @@ class MainActivity : AppCompatActivity() {
         val jsonURL = "https://jsonplaceholder.typicode.com/users"
 
         // получение JSON через корутины в текст
+        /*
         lifecycleScope.launch {
             val result = httpGet(jsonURL)
             Log.d("GETRESULT",result)
         }
+
+         */
 
 
         // получение JSON в WebView
