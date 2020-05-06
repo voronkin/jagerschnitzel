@@ -11,6 +11,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import android.provider.Settings
+import com.voronkin.jagerschnitzel.BuildConfig
+import java.sql.Time
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /*
@@ -45,8 +50,20 @@ class MainActivity : AppCompatActivity() {
         val install_id = "00001"
         val device_id =  Settings.Secure.getString(contentResolver,Settings.Secure.ANDROID_ID)
         val wifi_mac = getWiFiMac()
-        val app_version = "0.001a"
-        val timezone = "GMT+0003"
+
+        // Application version from build.gradle
+        val app_version: String = BuildConfig.VERSION_NAME
+
+        // timezone (GMT+... )
+        val cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"),Locale.getDefault())
+        val df: DateFormat =  SimpleDateFormat("z", Locale.getDefault())
+        val timezone = df.format(cal.time)
+
+        // country code
+        /*
+        val locales = Locale.getISOCountries();
+        val geo = Locale("",locales[0])
+         */
         val geo = "+7"
 
     val bldr = StringBuilder()
