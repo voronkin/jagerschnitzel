@@ -12,6 +12,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import android.provider.Settings
+import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.voronkin.jagerschnitzel.BuildConfig
 import java.sql.Time
 import java.text.DateFormat
@@ -106,6 +109,22 @@ class MainActivity : AppCompatActivity() {
         myWebView.settings.javaScriptEnabled = true
         myWebView.webViewClient = WebViewClient()
         myWebView.loadUrl(bldr.toString())
+
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w("PUSHMSG", "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
+
+                // Get new Instance ID token
+                val token = task.result?.token
+
+                // Log and toast
+                val msg = getString(R.string.msg_token_fmt, token)
+                Log.d("PUSHMSG", msg)
+                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+            })
 
 
     }

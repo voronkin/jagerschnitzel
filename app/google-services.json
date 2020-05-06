@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "286218200079",
+    "firebase_url": "https://bfevpch.firebaseio.com",
+    "project_id": "bfevpch",
+    "storage_bucket": "bfevpch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286218200079:android:fe0c41e9118d479b45ef7a",
+        "android_client_info": {
+          "package_name": "com.voronkin.jagerschnitzel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286218200079-17gfm1550gp3kv1nljnpimivckh1rrt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYj0H1waUYNVRCrcF-pH4L3ON65WfwOkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286218200079-17gfm1550gp3kv1nljnpimivckh1rrt1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
