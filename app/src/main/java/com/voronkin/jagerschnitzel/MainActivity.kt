@@ -4,6 +4,7 @@ package com.voronkin.jagerschnitzel
 
 import android.content.Context
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 
@@ -60,11 +61,16 @@ class MainActivity : AppCompatActivity() {
         val timezone = df.format(cal.time)
 
         // country code
-        /*
+
         val locales = Locale.getISOCountries();
-        val geo = Locale("",locales[0])
-         */
-        val geo = "+7"
+        //val geo = applicationContext.resources.configuration.locales.get(0).country
+
+
+        val lcl = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            applicationContext.resources.configuration.locales.get(0).country
+        } else {
+            applicationContext.resources.configuration.locale.country
+        }
 
     val bldr = StringBuilder()
     bldr.append(jsonURL)
@@ -79,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         .append("&")
         .append(timezone)
         .append("&")
-        .append(geo)
+        .append(lcl)
 
     Log.d("GETURL",bldr.toString())
 
